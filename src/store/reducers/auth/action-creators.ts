@@ -1,7 +1,6 @@
 import {AuthActionType, ISetAuthAction, ISetErrorAction, ISetLoadingAction, ISetUserAction} from "./types";
 import {IUser} from "../../../model/IUser";
 import {AppDispatch} from "../../index";
-import axios from "axios";
 import {UserService} from "../../../api/UserService";
 
 export const AuthActionCreators = {
@@ -13,10 +12,11 @@ export const AuthActionCreators = {
     }),
     setError: (error: string): ISetErrorAction => ({type: AuthActionType.SET_ERROR, payload: error}),
     login: (username: string, password: string) =>
-        async (dispath: AppDispatch) => {
+        async (dispatch: AppDispatch) => {
             try {
-                dispath(AuthActionCreators.setLoading(true));
+                dispatch(AuthActionCreators.setLoading(true));
 
+                // Simulating a request to the server
                 setTimeout(async () => {
                     const response = await UserService.getUsers();
                     const user =
@@ -25,28 +25,28 @@ export const AuthActionCreators = {
                             && user.password === password);
 
                     if (user) {
-                        localStorage.setItem('auth', 'true');
-                        localStorage.setItem('username', username);
+                        localStorage.setItem("auth", "true");
+                        localStorage.setItem("username", username);
 
-                        dispath(AuthActionCreators.setUser(user));
-                        dispath(AuthActionCreators.setAuth(true));
+                        dispatch(AuthActionCreators.setUser(user));
+                        dispatch(AuthActionCreators.setAuth(true));
                     } else {
-                        dispath(AuthActionCreators.setError(`Invalid Username or Password`));
+                        dispatch(AuthActionCreators.setError(`Invalid Username or Password`));
                     }
 
-                    dispath(AuthActionCreators.setLoading(false));
+                    dispatch(AuthActionCreators.setLoading(false));
                 }, 1000);
             } catch (e) {
-                dispath(AuthActionCreators.setError(`Error at Login Action: ${e}`));
+                dispatch(AuthActionCreators.setError(`Error at Login Action: ${e}`));
             }
         },
     logout: () =>
-        async (dispath: AppDispatch) => {
-            localStorage.removeItem('auth');
-            localStorage.removeItem('username');
+        async (dispatch: AppDispatch) => {
+            localStorage.removeItem("auth");
+            localStorage.removeItem("username");
 
-            dispath(AuthActionCreators.setLoading(false));
-            dispath(AuthActionCreators.setUser({} as IUser));
-            dispath(AuthActionCreators.setAuth(false));
+            dispatch(AuthActionCreators.setLoading(false));
+            dispatch(AuthActionCreators.setUser({} as IUser));
+            dispatch(AuthActionCreators.setAuth(false));
         }
 }

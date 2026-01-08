@@ -1,5 +1,4 @@
-import {EventActionType, IEventState} from "./types";
-import {BaseAction} from "./types";
+import {BaseAction, EventActionType, IEventState} from "./types";
 
 const initialState: IEventState = {
     events: [],
@@ -7,7 +6,7 @@ const initialState: IEventState = {
 }
 
 export function eventReducer(state: IEventState = initialState, action: BaseAction): IEventState {
-    switch (action.type){
+    switch (action.type) {
         case EventActionType.SET_GUESTS:
             return {...state, guests: action.payload};
         case EventActionType.SET_EVENTS:

@@ -1,5 +1,5 @@
 import {Card, Layout, Row} from "antd";
-import '../App.css'
+import "../App.css"
 import {LoginForm} from "../components/LoginForm";
 
 const Login = () => {

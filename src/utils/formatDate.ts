@@ -1,5 +1,4 @@
-export const formatDate = (date: Date | undefined): string =>
-{
+export const formatDate = (date: Date | undefined): string => {
     if (!date) {
         return "";
     }

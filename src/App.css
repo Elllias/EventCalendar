@@ -2,7 +2,25 @@
     margin: 0
 }
 
+.h70 {
+    height: calc(70vh - 64px);
+    overflow: auto;
+}
+
 .h100 {
     height: calc(100vh - 64px);
+}
+
+.event-card {
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.event-card:first-child {
+    padding-top: 0;
+}
+
+.event-card-container {
+    background: white;
 }
 

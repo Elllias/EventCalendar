@@ -1,9 +1,9 @@
 import {Button, DatePicker, Form, Input, Row, Select} from "antd";
+import {useState} from "react";
 import {rules} from "../utils/formRules";
-import {IUser} from "../model/IUser";
-import {FC, useState} from "react";
-import {IEvent} from "../model/IEvent";
 import {formatDate} from "../utils/formatDate";
+import {IUser} from "../model/IUser";
+import {IEvent} from "../model/IEvent";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
 interface EventFormProps {
@@ -11,14 +11,14 @@ interface EventFormProps {
     onSubmit: (event: IEvent) => void
 }
 
-const EventForm: FC<EventFormProps> = ({guests, onSubmit}) => {
-    const {user} = useTypedSelector(state => state.authReducer)
+const EventCreateForm = ({guests, onSubmit}: EventFormProps) => {
+    const {user} = useTypedSelector(state => state.authReducer);
     const [event, setEvent] = useState({
         author: "",
         description: "",
         date: "",
         guest: {}
-    } as IEvent)
+    } as IEvent);
 
     const onFinish = () => {
         onSubmit({...event, author: user.username});
@@ -29,7 +29,7 @@ const EventForm: FC<EventFormProps> = ({guests, onSubmit}) => {
             onFinish={onFinish}
         >
             <Form.Item
-                label="Описание события"
+                label="Описание"
                 name="description"
                 rules={[rules.required()]}
             >
@@ -40,7 +40,7 @@ const EventForm: FC<EventFormProps> = ({guests, onSubmit}) => {
             <Form.Item
                 label="Дата"
                 name="date"
-                rules={[rules.required(), rules.isDateAfter("Событие не может быть создано в прошлом")]}
+                rules={[rules.required(), rules.isDateAfter("Событие может создано только на актуальные даты")]}
             >
                 <DatePicker
                     onChange={(day) =>
@@ -57,6 +57,7 @@ const EventForm: FC<EventFormProps> = ({guests, onSubmit}) => {
                     setEvent({...event, guest: value})
                 }>
                     {guests.map((guest) =>
+                        guest.username !== user.username &&
                         <Select.Option key={guest.username}>
                             {guest.username}
                         </Select.Option>
@@ -74,4 +75,4 @@ const EventForm: FC<EventFormProps> = ({guests, onSubmit}) => {
     );
 };
 
-export default EventForm;
+export default EventCreateForm;

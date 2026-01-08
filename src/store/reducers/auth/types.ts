@@ -17,7 +17,8 @@ export enum AuthActionType {
 
 export interface BaseAction {
     type: string;
-    [key: string]: any; // Индексная сигнатура
+
+    [key: string]: any;
 }
 
 export interface ISetAuthAction extends BaseAction {

@@ -3,7 +3,7 @@ import {privateRoutes, publicRoutes, RouteNames} from "../router";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
 const AppRouter = () => {
-    const {isAuth} = useTypedSelector(state => state.authReducer)
+    const {isAuth} = useTypedSelector(state => state.authReducer);
 
     return (
         <Routes>
@@ -29,7 +29,7 @@ const AppRouter = () => {
             }
             <Route
                 path="*"
-                element={<Navigate to={isAuth ? RouteNames.EVENT : RouteNames.LOGIN} replace />}
+                element={<Navigate to={isAuth ? RouteNames.EVENT : RouteNames.LOGIN} replace/>}
             />
         </Routes>
     );

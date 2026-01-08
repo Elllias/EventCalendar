@@ -7,13 +7,13 @@ export const rules = {
     }),
     isDateAfter: (message: string) => () => ({
         validator(_: any, date: Moment) {
-            if (!date){
+            if (!date) {
                 return Promise.reject();
             }
 
             const currentMoment = moment();
 
-            if (date.isSame(currentMoment, 'day') || date.isAfter(currentMoment)) {
+            if (date.isSame(currentMoment, "day") || date.isAfter(currentMoment)) {
                 return Promise.resolve();
             }
 

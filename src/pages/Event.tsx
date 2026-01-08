@@ -1,16 +1,20 @@
-import {useEffect, useState} from "react";
-import {Button, Layout, Modal, Row} from "antd";
+import {useEffect, useRef, useState} from "react";
+import {Button, Card, Layout, Modal, Row} from "antd";
 import EventCalendar from "../components/EventCalendar";
-import EventForm from "../components/EventForm";
+import EventCreateForm from "../components/EventCreateForm";
+import EventInfoForm from "../components/EventInfoForm";
 import {useActions} from "../hooks/useAppDispatch";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {IEvent} from "../model/IEvent";
+import {formatDate} from "../utils/formatDate";
 
 const Event = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+    const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
     const {guests, events} = useTypedSelector(state => state.eventReducer);
     const {user} = useTypedSelector(state => state.authReducer);
     const {fetchGuests, createEvent, fetchEvents} = useActions();
+    const selectedDate = useRef<Date>(undefined);
 
     useEffect(() => {
         fetchGuests();
@@ -18,27 +22,42 @@ const Event = () => {
     }, []);
 
     const onSubmit = (event: IEvent) => {
-        setIsModalOpen(false);
+        setIsCreateModalOpen(false);
         createEvent(event);
     }
 
     return (
         <Layout>
-            <EventCalendar events={events} />
+            <Card>
+                <EventCalendar events={events} onSelect={(date) => {
+                    selectedDate.current = date;
+                    setIsInfoModalOpen(true);
+                }}/>
+            </Card>
             <Row justify="center" style={{padding: "10px 0"}}>
                 <Button onClick={() =>
-                    setIsModalOpen(true)
+                    setIsCreateModalOpen(true)
                 }>
                     Добавить событие
                 </Button>
             </Row>
             <Modal
                 title="Добавить событие"
-                open={isModalOpen}
-                onCancel={() => setIsModalOpen(false)}
+                open={isCreateModalOpen}
+                onCancel={() => setIsCreateModalOpen(false)}
                 footer={null}
             >
-                <EventForm guests={guests} onSubmit={onSubmit}/>
+                <EventCreateForm guests={guests} onSubmit={onSubmit}/>
+            </Modal>
+            <Modal
+                title="События"
+                open={isInfoModalOpen}
+                onCancel={() => setIsInfoModalOpen(false)}
+                footer={null}
+            >
+                <EventInfoForm events={events.filter(
+                    (event) => event.date === formatDate(selectedDate.current)
+                )}/>
             </Modal>
         </Layout>
     );

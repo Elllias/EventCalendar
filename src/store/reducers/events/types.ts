@@ -6,13 +6,14 @@ export interface IEventState {
     events: IEvent[];
 }
 
-export enum EventActionType{
+export enum EventActionType {
     SET_GUESTS = "SET_GUESTS",
     SET_EVENTS = "SET_EVENTS",
 }
 
 export interface BaseAction {
     type: string;
+
     [key: string]: any; // Индексная сигнатура
 }
 
