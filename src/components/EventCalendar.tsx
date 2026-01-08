@@ -9,11 +9,11 @@ interface EventCalendarProps {
 
 const EventCalendar = ({events, onSelect}: EventCalendarProps) => {
     const cellRender = (date: Date) => {
-        const formatedDate: string = formatDate(date);
-        const currentUserEvents: IEvent[] = events.filter((event) => event.date === formatedDate);
+        const formattedDate: string = formatDate(date);
+        const currentUserEvents: IEvent[] = events.filter((event) => event.date === formattedDate);
 
         return (
-            <div className="event-calendar-cell">{currentUserEvents.map((event, index) =>
+            <div className="EventCalendar__cell">{currentUserEvents.map((event, index) =>
                 <div key={index}>{event.description}</div>)}
             </div>
         );

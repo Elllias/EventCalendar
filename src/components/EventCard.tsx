@@ -1,4 +1,4 @@
-import {Card, Row} from "antd";
+import {Card} from "antd";
 import {IEvent} from "../model/IEvent";
 
 export interface EventCardProps {

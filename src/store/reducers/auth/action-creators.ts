@@ -30,6 +30,7 @@ export const AuthActionCreators = {
 
                         dispatch(AuthActionCreators.setUser(user));
                         dispatch(AuthActionCreators.setAuth(true));
+                        dispatch(AuthActionCreators.setError(""));
                     } else {
                         dispatch(AuthActionCreators.setError(`Invalid Username or Password`));
                     }

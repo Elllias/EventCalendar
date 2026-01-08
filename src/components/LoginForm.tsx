@@ -16,7 +16,7 @@ export const LoginForm = () => {
 
     return (
         <Form onFinish={onFinish}>
-            {error && <div style={{color: "red", paddingBottom: "10px"}}>
+            {error && <div className="LoginForm__error-text">
                 {error}
             </div>}
             <Form.Item

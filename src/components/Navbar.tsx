@@ -15,7 +15,7 @@ export const Navbar = () => {
             <Row justify="end">
                 {isAuth &&
                     <>
-                        <div style={{color: "white", paddingRight: "10px"}}>{user.username}</div>
+                        <div className="Navbar__username">{user.username}</div>
                         <Menu theme="dark" mode="horizontal" selectable={false}>
                             <Menu.Item
                                 onClick={logout}

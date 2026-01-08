@@ -34,7 +34,7 @@ const Event = () => {
                     setIsInfoModalOpen(true);
                 }}/>
             </Card>
-            <Row justify="center" style={{padding: "10px 0"}}>
+            <Row justify="center" className="Event__add-event-row">
                 <Button onClick={() =>
                     setIsCreateModalOpen(true)
                 }>

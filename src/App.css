@@ -11,20 +11,37 @@
     height: calc(100vh - 64px);
 }
 
-.event-card {
+.EventInfoForm__event-card {
     padding-top: 5px;
     padding-right: 5px;
 }
 
-.event-card:first-child {
+.EventInfoForm__event-card:first-child {
     padding-top: 0;
 }
 
-.event-card-container {
+.EventInfoForm__event-card-container {
     background: white;
 }
 
-.event-calendar-cell{
+.EventInfoForm__no-events-row{
+    height: 100%;
+}
+
+.EventCalendar__cell{
     overflow: hidden;
 }
 
+.LoginForm__error-text{
+    color: red;
+    padding-bottom: 10px;
+}
+
+.Navbar__username{
+    color: white;
+    padding-right: 10px;
+}
+
+.Event__add-event-row{
+    padding: 10px 0;
+}
