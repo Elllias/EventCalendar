@@ -13,7 +13,7 @@ const EventCalendar = ({events, onSelect}: EventCalendarProps) => {
         const currentUserEvents: IEvent[] = events.filter((event) => event.date === formatedDate);
 
         return (
-            <div>{currentUserEvents.map((event, index) =>
+            <div className="event-calendar-cell">{currentUserEvents.map((event, index) =>
                 <div key={index}>{event.description}</div>)}
             </div>
         );

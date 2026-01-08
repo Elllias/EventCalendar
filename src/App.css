@@ -24,3 +24,7 @@
     background: white;
 }
 
+.event-calendar-cell{
+    overflow: hidden;
+}
+

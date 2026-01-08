@@ -8,13 +8,10 @@ export interface EventCardProps {
 export const EventCard = ({event}: EventCardProps) => {
     return (
         <Card>
-            <Row>
-                <li>
-                    <ol>Date: {event.date}</ol>
-                    <ol>Description: {event.description}</ol>
-                    <ol>Guest: {event.guest}</ol>
-                </li>
-            </Row>
+            <li>
+                <ol>Description: {event.description}</ol>
+                <ol>Guest: {event.guest}</ol>
+            </li>
         </Card>
     )
 }

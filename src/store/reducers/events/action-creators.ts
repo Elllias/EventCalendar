@@ -3,6 +3,7 @@ import {IUser} from "../../../model/IUser";
 import {IEvent} from "../../../model/IEvent";
 import {AppDispatch} from "../../index";
 import {UserService} from "../../../api/UserService";
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
 export const EventActionCreators = {
     setGuests: (guests: IUser[]): ISetGuestsAction => ({type: EventActionType.SET_GUESTS, payload: guests}),
@@ -17,10 +18,17 @@ export const EventActionCreators = {
 
         events.push(event);
 
-        dispatch(EventActionCreators.setEvents(events));
         localStorage.setItem("events", JSON.stringify(events));
+
+        const username = localStorage.getItem("username");
+        const currentUserEvents = events.filter(
+            (event) =>
+                event.author === username
+                || event.guest === username);
+
+        dispatch(EventActionCreators.setEvents(currentUserEvents));
     },
-    fetchEvents: (username: string) => async (dispatch: AppDispatch) => {
+    fetchEvents: (username: string) => (dispatch: AppDispatch) => {
         const json = localStorage.getItem("events") || "[]";
         const events = JSON.parse(json) as IEvent[];
         const currentUserEvents = events.filter(
