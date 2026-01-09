@@ -4,14 +4,15 @@ import {useActions} from "./hooks/useAppDispatch";
 import {IUser} from "./model/IUser";
 import {Navbar} from "./components/Navbar";
 import AppRouter from "./components/AppRouter";
+import {UserService} from "./api/UserService";
 
 function App() {
     const {setUser, setAuth} = useActions();
 
     useEffect(() => {
-        if (localStorage.getItem("auth")) {
+        if (UserService.getAuth()) {
             setAuth(true);
-            setUser({username: localStorage.getItem("username")} as IUser);
+            setUser({username: UserService.getUsername()} as IUser);
         }
     }, [])
 

@@ -18,15 +18,15 @@ export const AuthActionCreators = {
 
                 // Simulating a request to the server
                 setTimeout(async () => {
-                    const response = await UserService.getUsers();
+                    const users = await UserService.getUsers();
                     const user =
-                        response.data.find(user =>
+                        users.find(user =>
                             user.username === username
                             && user.password === password);
 
                     if (user) {
-                        localStorage.setItem("auth", "true");
-                        localStorage.setItem("username", username);
+                        UserService.setAuth(true);
+                        UserService.setUsername(username);
 
                         dispatch(AuthActionCreators.setUser(user));
                         dispatch(AuthActionCreators.setAuth(true));
@@ -43,8 +43,7 @@ export const AuthActionCreators = {
         },
     logout: () =>
         async (dispatch: AppDispatch) => {
-            localStorage.removeItem("auth");
-            localStorage.removeItem("username");
+            UserService.clearUserData();
 
             dispatch(AuthActionCreators.setLoading(false));
             dispatch(AuthActionCreators.setUser({} as IUser));

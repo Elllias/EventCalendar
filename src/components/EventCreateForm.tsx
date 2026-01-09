@@ -13,12 +13,12 @@ interface EventFormProps {
 
 const EventCreateForm = ({guests, onSubmit}: EventFormProps) => {
     const {user} = useTypedSelector(state => state.authReducer);
-    const [event, setEvent] = useState({
+    const [event, setEvent] = useState<IEvent>({
         author: "",
         description: "",
         date: "",
-        guest: {}
-    } as IEvent);
+        guest: ""
+    });
 
     const onFinish = () => {
         onSubmit({...event, author: user.username});
@@ -65,7 +65,7 @@ const EventCreateForm = ({guests, onSubmit}: EventFormProps) => {
                 </Select>
             </Form.Item>
             <Row justify="end">
-                <Form.Item label={null}>
+                <Form.Item>
                     <Button type="primary" htmlType="submit">
                         Создать
                     </Button>

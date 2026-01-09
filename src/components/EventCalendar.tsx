@@ -14,14 +14,16 @@ const EventCalendar = ({events, onSelect}: EventCalendarProps) => {
 
         return (
             <div className="EventCalendar__cell">{currentUserEvents.map((event, index) =>
-                <div key={index}>{event.description}</div>)}
+                <div key={index}>
+                    {event.description}
+                </div>)}
             </div>
         );
     };
 
     return (
         <Calendar
-            cellRender={(date, info) => cellRender(date.toDate())}
+            cellRender={(date) => cellRender(date.toDate())}
             onSelect={(date) => onSelect(date.toDate())}
         />
     );

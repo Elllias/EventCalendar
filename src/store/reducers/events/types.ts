@@ -13,7 +13,6 @@ export enum EventActionType {
 
 export interface BaseAction {
     type: string;
-
     [key: string]: any; // Индексная сигнатура
 }
 
