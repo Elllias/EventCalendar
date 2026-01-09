@@ -12,7 +12,7 @@ export const EventCalendar = ({events, onSelect}: EventCalendarProps) => {
         const formattedDate = formatDate(date);
         const currentUserEvents = events.filter((event) => event.date === formattedDate);
 
-        return () => (
+        return (
             <div className="EventCalendar__cell">
                 {currentUserEvents.map((event, index) =>
                     <div key={index}>
@@ -24,7 +24,7 @@ export const EventCalendar = ({events, onSelect}: EventCalendarProps) => {
 
     return (
         <Calendar
-            cellRender={(date) => cellRender(date.toDate())}
+            dateCellRender={(date) => cellRender(date.toDate())}
             onSelect={(date) => onSelect(date.toDate())}
         />
     );

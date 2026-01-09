@@ -8,7 +8,7 @@ import {useTypedSelector} from "../hooks/useTypedSelector";
 import {Event} from "../model/Event";
 import {formatDate} from "../utils/formatDate";
 
-const Event = () => {
+export const Events = () => {
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
     const [isInfoModalOpen, setIsInfoModalOpen] = useState(false);
     const {guests, events} = useTypedSelector(state => state.eventReducer);
@@ -62,5 +62,3 @@ const Event = () => {
         </Layout>
     );
 };
-
-export default Event;

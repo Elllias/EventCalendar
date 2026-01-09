@@ -1,5 +1,5 @@
-import Login from "../pages/Login";
-import Event from "../pages/Event";
+import {Login} from "../pages/Login";
+import {Events} from "../pages/Events";
 
 interface IRoute {
     path: string;
@@ -16,5 +16,5 @@ export const publicRoutes: IRoute[] = [{
     path: RouteNames.LOGIN, exact: true, component: Login
 }]
 export const privateRoutes: IRoute[] = [{
-    path: RouteNames.EVENT, exact: true, component: Event
+    path: RouteNames.EVENT, exact: true, component: Events
 }]
