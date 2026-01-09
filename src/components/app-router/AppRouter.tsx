@@ -1,6 +1,6 @@
 import {Navigate, Route, Routes} from "react-router-dom";
-import {privateRoutes, publicRoutes, RouteNames} from "../router";
-import {useTypedSelector} from "../hooks/useTypedSelector";
+import {privateRoutes, publicRoutes, RouteNames} from "../../router";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 export const AppRouter = () => {
     const {isAuth} = useTypedSelector(state => state.authReducer);

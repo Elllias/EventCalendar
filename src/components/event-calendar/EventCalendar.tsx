@@ -1,6 +1,7 @@
+import "./EventCalendar.css";
 import {Calendar} from "antd";
-import {Event} from "../model/Event";
-import {formatDate} from "../utils/formatDate";
+import {Event} from "../../model/Event";
+import {formatDate} from "../../utils/formatDate";
 
 type EventCalendarProps = {
     events: Event[],

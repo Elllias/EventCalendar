@@ -1,6 +1,7 @@
+import "./Navbar.css";
 import {Layout, Menu, Row} from "antd";
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {useActions} from "../hooks/useAppDispatch";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useActions} from "../../hooks/useAppDispatch";
 
 enum MenuKey {
     LOGOUT = "logout"

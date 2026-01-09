@@ -2,8 +2,8 @@ import {Layout} from "antd";
 import {useEffect} from "react";
 import {useActions} from "./hooks/useAppDispatch";
 import {User} from "./model/User";
-import {Navbar} from "./components/Navbar";
-import {AppRouter} from "./components/AppRouter";
+import {Navbar} from "./components/navbar/Navbar";
+import {AppRouter} from "./components/app-router/AppRouter";
 import {UserService} from "./api/UserService";
 
 function App() {

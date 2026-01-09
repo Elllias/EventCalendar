@@ -1,8 +1,9 @@
+import "./LoginForm.css";
 import {useState} from "react";
 import {Button, Form, Input} from "antd";
-import {rules} from "../utils/formRules";
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {useActions} from "../hooks/useAppDispatch";
+import {rules} from "../../utils/formRules";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useActions} from "../../hooks/useAppDispatch";
 
 export const LoginForm = () => {
     const {error, isLoading} = useTypedSelector(state => state.authReducer)

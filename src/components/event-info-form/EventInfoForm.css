@@ -1,0 +1,18 @@
+.EventInfoForm__event-card {
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.EventInfoForm__event-card:first-child {
+    padding-top: 0;
+}
+
+.EventInfoForm__event-card-container {
+    background: white;
+    height: calc(70vh - 64px);
+    overflow: auto;
+}
+
+.EventInfoForm__no-events-row {
+    height: 100%;
+}

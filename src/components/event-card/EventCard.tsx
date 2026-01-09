@@ -1,5 +1,5 @@
 import {Card} from "antd";
-import {Event} from "../model/Event";
+import {Event} from "../../model/Event";
 
 type EventCardProps = {
     event: Event

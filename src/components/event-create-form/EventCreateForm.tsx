@@ -1,10 +1,10 @@
 import {Button, DatePicker, Form, Input, Row, Select} from "antd";
 import {useState} from "react";
-import {rules} from "../utils/formRules";
-import {formatDate} from "../utils/formatDate";
-import {User} from "../model/User";
-import {Event} from "../model/Event";
-import {useTypedSelector} from "../hooks/useTypedSelector";
+import {rules} from "../../utils/formRules";
+import {formatDate} from "../../utils/formatDate";
+import {User} from "../../model/User";
+import {Event} from "../../model/Event";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 type EventFormProps = {
     guests: User[],

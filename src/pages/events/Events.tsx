@@ -1,12 +1,13 @@
+import "./Events.css";
 import {useEffect, useRef, useState} from "react";
 import {Button, Card, Layout, Modal, Row} from "antd";
-import {EventCalendar} from "../components/EventCalendar";
-import {EventCreateForm} from "../components/EventCreateForm";
-import {EventInfoForm} from "../components/EventInfoForm";
-import {useActions} from "../hooks/useAppDispatch";
-import {useTypedSelector} from "../hooks/useTypedSelector";
-import {Event} from "../model/Event";
-import {formatDate} from "../utils/formatDate";
+import {EventCalendar} from "../../components/event-calendar/EventCalendar";
+import {EventCreateForm} from "../../components/event-create-form/EventCreateForm";
+import {EventInfoForm} from "../../components/event-info-form/EventInfoForm";
+import {useActions} from "../../hooks/useAppDispatch";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {Event} from "../../model/Event";
+import {formatDate} from "../../utils/formatDate";
 
 export const Events = () => {
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -34,7 +35,7 @@ export const Events = () => {
                     setIsInfoModalOpen(true);
                 }}/>
             </Card>
-            <Row justify="center" className="Event__add-event-row">
+            <Row justify="center" className="Events__add-event-row">
                 <Button onClick={() =>
                     setIsCreateModalOpen(true)
                 }>

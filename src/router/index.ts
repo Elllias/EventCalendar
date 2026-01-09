@@ -1,5 +1,5 @@
-import {Login} from "../pages/Login";
-import {Events} from "../pages/Events";
+import {Login} from "../pages/login/Login";
+import {Events} from "../pages/events/Events";
 
 interface IRoute {
     path: string;
