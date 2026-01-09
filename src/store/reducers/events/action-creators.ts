@@ -1,17 +1,17 @@
 import {EventActionType, ISetEventsAction, ISetGuestsAction} from "./types";
-import {IUser} from "../../../model/IUser";
-import {IEvent} from "../../../model/IEvent";
+import {User} from "../../../model/User";
+import {Event} from "../../../model/Event";
 import {AppDispatch} from "../../index";
 import {UserService} from "../../../api/UserService";
 
 export const EventActionCreators = {
-    setGuests: (guests: IUser[]): ISetGuestsAction => ({type: EventActionType.SET_GUESTS, payload: guests}),
-    setEvents: (events: IEvent[]): ISetEventsAction => ({type: EventActionType.SET_EVENTS, payload: events}),
+    setGuests: (guests: User[]): ISetGuestsAction => ({type: EventActionType.SET_GUESTS, payload: guests}),
+    setEvents: (events: Event[]): ISetEventsAction => ({type: EventActionType.SET_EVENTS, payload: events}),
     fetchGuests: () => async (dispatch: AppDispatch) => {
         const users = await UserService.getUsers();
         dispatch(EventActionCreators.setGuests(users));
     },
-    createEvent: (event: IEvent) => (dispatch: AppDispatch) => {
+    createEvent: (event: Event) => (dispatch: AppDispatch) => {
         UserService.addEvent(event);
 
         const events = UserService.getEvents();

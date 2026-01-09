@@ -1,4 +1,4 @@
-export interface IEvent {
+export type Event = {
     author: string;
     guest: string;
     date: string;

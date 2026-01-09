@@ -1,9 +1,9 @@
-import {IUser} from "../../../model/IUser";
-import {IEvent} from "../../../model/IEvent";
+import {User} from "../../../model/User";
+import {Event} from "../../../model/Event";
 
 export interface IEventState {
-    guests: IUser[];
-    events: IEvent[];
+    guests: User[];
+    events: Event[];
 }
 
 export enum EventActionType {
@@ -18,10 +18,10 @@ export interface BaseAction {
 
 export interface ISetGuestsAction extends BaseAction {
     type: EventActionType.SET_GUESTS;
-    payload: IUser[];
+    payload: User[];
 }
 
 export interface ISetEventsAction extends BaseAction {
     type: EventActionType.SET_EVENTS;
-    payload: IEvent[];
+    payload: Event[];
 }

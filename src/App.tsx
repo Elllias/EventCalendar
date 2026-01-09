@@ -1,9 +1,9 @@
 import {Layout} from "antd";
 import {useEffect} from "react";
 import {useActions} from "./hooks/useAppDispatch";
-import {IUser} from "./model/IUser";
+import {User} from "./model/User";
 import {Navbar} from "./components/Navbar";
-import AppRouter from "./components/AppRouter";
+import {AppRouter} from "./components/AppRouter";
 import {UserService} from "./api/UserService";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
     useEffect(() => {
         if (UserService.getAuth()) {
             setAuth(true);
-            setUser({username: UserService.getUsername()} as IUser);
+            setUser({username: UserService.getUsername()} as User);
         }
     }, [])
 

@@ -1,9 +1,9 @@
 // types.ts
-import {IUser} from "../../../model/IUser";
+import {User} from "../../../model/User";
 
 export interface IAuthState {
     isAuth: boolean;
-    user: IUser;
+    user: User;
     error: string;
     isLoading: boolean;
 }
@@ -27,7 +27,7 @@ export interface ISetAuthAction extends BaseAction {
 
 export interface ISetUserAction extends BaseAction {
     type: AuthActionType.SET_USER;
-    payload: IUser;
+    payload: User;
 }
 
 export interface ISetErrorAction extends BaseAction {

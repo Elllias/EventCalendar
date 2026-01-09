@@ -2,18 +2,18 @@ import {Button, DatePicker, Form, Input, Row, Select} from "antd";
 import {useState} from "react";
 import {rules} from "../utils/formRules";
 import {formatDate} from "../utils/formatDate";
-import {IUser} from "../model/IUser";
-import {IEvent} from "../model/IEvent";
+import {User} from "../model/User";
+import {Event} from "../model/Event";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
-interface EventFormProps {
-    guests: IUser[],
-    onSubmit: (event: IEvent) => void
+type EventFormProps = {
+    guests: User[],
+    onSubmit: (event: Event) => void
 }
 
-const EventCreateForm = ({guests, onSubmit}: EventFormProps) => {
+export const EventCreateForm = ({guests, onSubmit}: EventFormProps) => {
     const {user} = useTypedSelector(state => state.authReducer);
-    const [event, setEvent] = useState<IEvent>({
+    const [event, setEvent] = useState<Event>({
         author: "",
         description: "",
         date: "",
@@ -74,5 +74,3 @@ const EventCreateForm = ({guests, onSubmit}: EventFormProps) => {
         </Form>
     );
 };
-
-export default EventCreateForm;

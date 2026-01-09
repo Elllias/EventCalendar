@@ -1,11 +1,11 @@
 import {useEffect, useRef, useState} from "react";
 import {Button, Card, Layout, Modal, Row} from "antd";
-import EventCalendar from "../components/EventCalendar";
-import EventCreateForm from "../components/EventCreateForm";
-import EventInfoForm from "../components/EventInfoForm";
+import {EventCalendar} from "../components/EventCalendar";
+import {EventCreateForm} from "../components/EventCreateForm";
+import {EventInfoForm} from "../components/EventInfoForm";
 import {useActions} from "../hooks/useAppDispatch";
 import {useTypedSelector} from "../hooks/useTypedSelector";
-import {IEvent} from "../model/IEvent";
+import {Event} from "../model/Event";
 import {formatDate} from "../utils/formatDate";
 
 const Event = () => {
@@ -21,7 +21,7 @@ const Event = () => {
         fetchEvents(user.username);
     }, []);
 
-    const onSubmit = (event: IEvent) => {
+    const onSubmit = (event: Event) => {
         setIsCreateModalOpen(false);
         createEvent(event);
     }

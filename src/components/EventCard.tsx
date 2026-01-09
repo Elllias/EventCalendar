@@ -1,8 +1,8 @@
 import {Card} from "antd";
-import {IEvent} from "../model/IEvent";
+import {Event} from "../model/Event";
 
-export interface EventCardProps {
-    event: IEvent
+type EventCardProps = {
+    event: Event
 }
 
 export const EventCard = ({event}: EventCardProps) => {

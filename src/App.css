@@ -24,24 +24,24 @@
     background: white;
 }
 
-.EventInfoForm__no-events-row{
+.EventInfoForm__no-events-row {
     height: 100%;
 }
 
-.EventCalendar__cell{
+.EventCalendar__cell {
     overflow: hidden;
 }
 
-.LoginForm__error-text{
+.LoginForm__error-text {
     color: red;
     padding-bottom: 10px;
 }
 
-.Navbar__username{
+.Navbar__username {
     color: white;
     padding-right: 10px;
 }
 
-.Event__add-event-row{
+.Event__add-event-row {
     padding: 10px 0;
 }

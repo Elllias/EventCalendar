@@ -1,9 +1,9 @@
 import {Layout, Row} from "antd";
-import {IEvent} from "../model/IEvent";
+import {Event} from "../model/Event";
 import {EventCard} from "./EventCard";
 
-export interface EventInfoProps {
-    events: IEvent[]
+type EventInfoProps = {
+    events: Event[]
 }
 
 export const EventInfoForm = ({events}: EventInfoProps) => {
@@ -24,5 +24,3 @@ export const EventInfoForm = ({events}: EventInfoProps) => {
         </Layout>
     )
 }
-
-export default EventInfoForm;

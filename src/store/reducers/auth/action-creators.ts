@@ -1,10 +1,10 @@
 import {AuthActionType, ISetAuthAction, ISetErrorAction, ISetLoadingAction, ISetUserAction} from "./types";
-import {IUser} from "../../../model/IUser";
+import {User} from "../../../model/User";
 import {AppDispatch} from "../../index";
 import {UserService} from "../../../api/UserService";
 
 export const AuthActionCreators = {
-    setUser: (user: IUser): ISetUserAction => ({type: AuthActionType.SET_USER, payload: user}),
+    setUser: (user: User): ISetUserAction => ({type: AuthActionType.SET_USER, payload: user}),
     setAuth: (isAuth: boolean): ISetAuthAction => ({type: AuthActionType.SET_IS_AUTH, payload: isAuth}),
     setLoading: (isLoading: boolean): ISetLoadingAction => ({
         type: AuthActionType.SET_IS_LOADING,
@@ -46,7 +46,7 @@ export const AuthActionCreators = {
             UserService.clearUserData();
 
             dispatch(AuthActionCreators.setLoading(false));
-            dispatch(AuthActionCreators.setUser({} as IUser));
+            dispatch(AuthActionCreators.setUser({} as User));
             dispatch(AuthActionCreators.setAuth(false));
         }
 }

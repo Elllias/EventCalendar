@@ -2,7 +2,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import {privateRoutes, publicRoutes, RouteNames} from "../router";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
-const AppRouter = () => {
+export const AppRouter = () => {
     const {isAuth} = useTypedSelector(state => state.authReducer);
 
     return (
@@ -30,5 +30,3 @@ const AppRouter = () => {
         </Routes>
     );
 };
-
-export default AppRouter;

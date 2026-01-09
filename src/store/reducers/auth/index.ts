@@ -1,9 +1,9 @@
 import {AuthActionType, BaseAction, IAuthState} from "./types";
-import {IUser} from "../../../model/IUser";
+import {User} from "../../../model/User";
 
 const initialState: IAuthState = {
     isAuth: false,
-    user: {} as IUser,
+    user: {} as User,
     error: "",
     isLoading: false
 }
